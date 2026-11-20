@@ -7,9 +7,10 @@ locals {
   helm_values = [{
     mysql = {
       auth = {
-        database = "site"
-        username = local.credentials.username
-        password = local.credentials.password
+        database       = "site"
+        username       = local.credentials.username
+        password       = local.credentials.password
+        existingSecret = "mysql-secrets"
       }
       image = {
         repository = "bitnamilegacy/mysql"
@@ -28,12 +29,12 @@ locals {
       }
       primary = {
         persistence = {
-          size = "${persistence_size}Gi"
+          size = "${var.persistence_size}Gi"
         }
       }
       secondary = {
         persistence = {
-          size = "${persistence_size}Gi"
+          size = "${var.persistence_size}Gi"
         }
       }
       volumePermissions = {
