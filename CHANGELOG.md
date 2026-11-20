@@ -1,5 +1,16 @@
 # Changelog
 
+## [2.0.0](https://github.com/gersonrs/modern-gitops-stack-module-mysql/compare/v1.2.0...v2.0.0) (2026-11-20)
+
+
+### ⚠ BREAKING CHANGES
+
+* provider major bumps and a stricter Terraform baseline; consumers must run `terraform init -upgrade`.
+
+### 🚀 New Features
+
+* upgrade charts, providers and Terraform baseline ([#4](https://github.com/gersonrs/modern-gitops-stack-module-mysql/issues/4)) ([4635ef5](https://github.com/gersonrs/modern-gitops-stack-module-mysql/commit/4635ef5729a12bee2caa6fa37790d0b9e1a4539a))
+
 ## [1.2.0](https://github.com/gersonrs/modern-gitops-stack-module-mysql/compare/v1.1.0...v1.2.0) (2026-07-11)
 
 
