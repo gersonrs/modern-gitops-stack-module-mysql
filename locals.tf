@@ -6,6 +6,11 @@ locals {
   databases = concat(["backend"], var.databases)
   helm_values = [{
     mysql = {
+      global = {
+        security = {
+          allowInsecureImages = true
+        }
+      }
       auth = {
         database       = "site"
         username       = local.credentials.username
