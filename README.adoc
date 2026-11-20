@@ -23,13 +23,13 @@ The following providers are used by this module:
 
 - [[provider_random]] <<provider_random,random>> (~> 3.9)
 
-- [[provider_null]] <<provider_null,null>> (~> 3.3)
-
 - [[provider_kubernetes]] <<provider_kubernetes,kubernetes>> (~> 3.5)
 
 - [[provider_argocd]] <<provider_argocd,argocd>> (~> 7.18)
 
 - [[provider_utils]] <<provider_utils,utils>> (~> 2.7)
+
+- [[provider_null]] <<provider_null,null>> (~> 3.3)
 
 === Resources
 
@@ -111,7 +111,7 @@ Description: Override of target revision of the application chart.
 
 Type: `string`
 
-Default: `"v2.0.0"`
+Default: `"v2.0.1"`
 
 ==== [[input_cluster_issuer]] <<input_cluster_issuer,cluster_issuer>>
 
@@ -296,10 +296,10 @@ Description: Mysql External IPs
 |===
 |Name |Version
 |[[provider_random]] <<provider_random,random>> |~> 3.9
-|[[provider_null]] <<provider_null,null>> |~> 3.3
 |[[provider_kubernetes]] <<provider_kubernetes,kubernetes>> |~> 3.5
 |[[provider_argocd]] <<provider_argocd,argocd>> |~> 7.18
 |[[provider_utils]] <<provider_utils,utils>> |~> 2.7
+|[[provider_null]] <<provider_null,null>> |~> 3.3
 |===
 
 = Resources
@@ -368,7 +368,7 @@ Description: Mysql External IPs
 |[[input_target_revision]] <<input_target_revision,target_revision>>
 |Override of target revision of the application chart.
 |`string`
-|`"v2.0.0"`
+|`"v2.0.1"`
 |no
 
 |[[input_cluster_issuer]] <<input_cluster_issuer,cluster_issuer>>
