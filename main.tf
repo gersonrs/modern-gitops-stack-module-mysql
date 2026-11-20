@@ -7,6 +7,36 @@ resource "null_resource" "dependencies" {
   triggers = var.dependency_ids
 }
 
+resource "kubernetes_namespace_v1" "mysql_namespace" {
+  metadata {
+    annotations = {
+      name = var.namespace
+    }
+    labels = {
+      "istio.io/dataplane-mode" = "ambient"
+    }
+    name = var.namespace
+  }
+  depends_on = [
+    resource.null_resource.dependencies
+  ]
+}
+
+resource "kubernetes_secret_v1" "mysql_secret" {
+  metadata {
+    name      = "mysql-secrets"
+    namespace = var.namespace
+  }
+
+  data = {
+    mysql-root-password        = "${resource.random_password.password_secret.result}"
+    mysql-password             = "${resource.random_password.password_secret.result}"
+    mysql-replication-password = "${resource.random_password.password_secret.result}"
+  }
+
+  depends_on = [resource.kubernetes_namespace_v1.mysql_namespace]
+}
+
 resource "argocd_project" "this" {
   count = var.argocd_project == null ? 1 : 0
 
@@ -111,12 +141,23 @@ resource "argocd_application" "this" {
 
   depends_on = [
     resource.null_resource.dependencies,
-    resource.kubernetes_secret.mysql_secret,
+    resource.kubernetes_secret_v1.mysql_secret,
   ]
 }
 
 resource "null_resource" "this" {
   depends_on = [
     resource.argocd_application.this,
+  ]
+}
+
+data "kubernetes_service_v1" "mysql" {
+  metadata {
+    name      = "mysql"
+    namespace = var.namespace
+  }
+
+  depends_on = [
+    null_resource.this
   ]
 }

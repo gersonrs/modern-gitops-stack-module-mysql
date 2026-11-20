@@ -13,10 +13,10 @@ output "cluster_dns" {
 }
 output "cluster_ip" {
   description = "mysql cluster ip internal"
-  value       = data.kubernetes_service.mysql.spec[0].cluster_ip
+  value       = data.kubernetes_service_v1.mysql.spec[0].cluster_ip
 }
 
 output "external_ip" {
   description = "Mysql External IPs"
-  value       = data.kubernetes_service.mysql.status[0].load_balancer[0].ingress[0].ip
+  value       = data.kubernetes_service_v1.mysql.status[0].load_balancer[0].ingress[0].ip
 }
