@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.0.1](https://github.com/gersonrs/modern-gitops-stack-module-mysql/compare/v2.0.0...v2.0.1) (2026-11-20)
+
+
+### 🔥 Bug Fixes
+
+* allow bitnamilegacy images in the chart ([#6](https://github.com/gersonrs/modern-gitops-stack-module-mysql/issues/6)) ([6981e11](https://github.com/gersonrs/modern-gitops-stack-module-mysql/commit/6981e1178aaa1d3af5d75f5479a882187fb9114e))
+
 ## [2.0.0](https://github.com/gersonrs/modern-gitops-stack-module-mysql/compare/v1.2.0...v2.0.0) (2026-11-20)
 
 
