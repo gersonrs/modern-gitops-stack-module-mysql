@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.0.1](https://github.com/gersonrs/modern-gitops-stack-module-mysql/compare/v3.0.0...v3.0.1) (2026-11-24)
+
+
+### 📚 Documentation
+
+* add usage and dependencies to the module documentation ([#10](https://github.com/gersonrs/modern-gitops-stack-module-mysql/issues/10)) ([e6c7661](https://github.com/gersonrs/modern-gitops-stack-module-mysql/commit/e6c76614d6182709b9a7ae7fe0565785c6c2d683))
+
 ## [3.0.0](https://github.com/gersonrs/modern-gitops-stack-module-mysql/compare/v2.0.1...v3.0.0) (2026-11-24)
 
 
