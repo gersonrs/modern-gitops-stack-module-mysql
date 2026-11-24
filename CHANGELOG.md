@@ -1,5 +1,16 @@
 # Changelog
 
+## [3.0.0](https://github.com/gersonrs/modern-gitops-stack-module-mysql/compare/v2.0.1...v3.0.0) (2026-11-24)
+
+
+### ⚠ BREAKING CHANGES
+
+* enable the ServiceMonitor by default ([#8](https://github.com/gersonrs/modern-gitops-stack-module-mysql/issues/8))
+
+### 🚀 New Features
+
+* enable the ServiceMonitor by default ([#8](https://github.com/gersonrs/modern-gitops-stack-module-mysql/issues/8)) ([dcbac60](https://github.com/gersonrs/modern-gitops-stack-module-mysql/commit/dcbac60e917f6d91b0f261cd1c7c8f0b05a6d810))
+
 ## [2.0.1](https://github.com/gersonrs/modern-gitops-stack-module-mysql/compare/v2.0.0...v2.0.1) (2026-11-20)
 
 
