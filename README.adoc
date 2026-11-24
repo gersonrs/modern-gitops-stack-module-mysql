@@ -25,9 +25,9 @@ The following providers are used by this module:
 
 - [[provider_kubernetes]] <<provider_kubernetes,kubernetes>> (~> 3.5)
 
-- [[provider_argocd]] <<provider_argocd,argocd>> (~> 7.18)
-
 - [[provider_utils]] <<provider_utils,utils>> (~> 2.7)
+
+- [[provider_argocd]] <<provider_argocd,argocd>> (~> 7.18)
 
 - [[provider_null]] <<provider_null,null>> (~> 3.3)
 
@@ -111,7 +111,7 @@ Description: Override of target revision of the application chart.
 
 Type: `string`
 
-Default: `"v2.0.1"`
+Default: `"v3.0.0"`
 
 ==== [[input_cluster_issuer]] <<input_cluster_issuer,cluster_issuer>>
 
@@ -131,11 +131,11 @@ Default: `"database"`
 
 ==== [[input_enable_service_monitor]] <<input_enable_service_monitor,enable_service_monitor>>
 
-Description: Enable Prometheus ServiceMonitor in the Helm chart.
+Description: Enable Prometheus ServiceMonitor in the Helm chart. Defaults to true because the Prometheus Operator CRDs are installed by the kube-prometheus-stack crds_bootstrap before any application, so every module can be monitored from the first apply. Set it to false on a specific module to opt that application out.
 
 Type: `bool`
 
-Default: `false`
+Default: `true`
 
 ==== [[input_helm_values]] <<input_helm_values,helm_values>>
 
@@ -296,10 +296,10 @@ Description: Mysql External IPs
 |===
 |Name |Version
 |[[provider_random]] <<provider_random,random>> |~> 3.9
+|[[provider_null]] <<provider_null,null>> |~> 3.3
 |[[provider_kubernetes]] <<provider_kubernetes,kubernetes>> |~> 3.5
 |[[provider_argocd]] <<provider_argocd,argocd>> |~> 7.18
 |[[provider_utils]] <<provider_utils,utils>> |~> 2.7
-|[[provider_null]] <<provider_null,null>> |~> 3.3
 |===
 
 = Resources
@@ -368,7 +368,7 @@ Description: Mysql External IPs
 |[[input_target_revision]] <<input_target_revision,target_revision>>
 |Override of target revision of the application chart.
 |`string`
-|`"v2.0.1"`
+|`"v3.0.0"`
 |no
 
 |[[input_cluster_issuer]] <<input_cluster_issuer,cluster_issuer>>
@@ -384,9 +384,9 @@ Description: Mysql External IPs
 |no
 
 |[[input_enable_service_monitor]] <<input_enable_service_monitor,enable_service_monitor>>
-|Enable Prometheus ServiceMonitor in the Helm chart.
+|Enable Prometheus ServiceMonitor in the Helm chart. Defaults to true because the Prometheus Operator CRDs are installed by the kube-prometheus-stack crds_bootstrap before any application, so every module can be monitored from the first apply. Set it to false on a specific module to opt that application out.
 |`bool`
-|`false`
+|`true`
 |no
 
 |[[input_helm_values]] <<input_helm_values,helm_values>>
