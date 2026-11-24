@@ -1,4 +1,48 @@
 = modern-gitops-stack-module-mysql
+// Document attributes to replace along the document
+:mysql-chart-version: 14.0.3
+:original-repo-url: https://github.com/bitnami/charts
+
+A https://modern-gitops-stack.io[Modern GitOps Stack] module to deploy MySQL, a relational database for workloads that require MySQL compatibility.
+
+The mysql chart used by this module is shipped in this repository as well, in order to avoid any unwanted behaviors caused by unsupported versions.
+
+[cols="1,1,1",options="autowidth,header"]
+|===
+|Current Chart Version |Original Repository |Default Values
+|*14.0.3* |https://github.com/bitnami/charts/tree/main/bitnami/mysql[mysql] |https://artifacthub.io/packages/helm/mysql/mysql/14.0.3?modal=values[`values.yaml`]
+|===
+
+== Usage
+
+This module can be declared by adding the following block to your Terraform configuration:
+
+[source,terraform]
+----
+module "mysql" {
+  source = "git::https://github.com/GersonRS/modern-gitops-stack-module-mysql.git?ref=<RELEASE>"
+
+  cluster_name   = local.cluster_name
+  base_domain    = local.base_domain
+  subdomain      = local.subdomain
+  cluster_issuer = local.cluster_issuer
+  app_autosync   = local.app_autosync
+
+  dependency_ids = {
+    istio = module.istio.id
+  }
+}
+----
+
+The application is deployed to the `database` namespace.
+
+== Technical Reference
+
+=== Dependencies
+
+==== `module.istio.id`
+
+MySQL runs inside the mesh.
 
 // BEGIN_TF_DOCS
 === Requirements
